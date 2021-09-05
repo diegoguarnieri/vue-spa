@@ -3,20 +3,21 @@
         <h1>About</h1>
     </div>
 
-    <button @click="test()">test</button>
+    <p>{{ sessionKey }}</p>
+
+    <button class="btn btn-primary" @click="test()">test</button>
 
 </template>
 
 <script>
 import axios from 'axios'
 axios.defaults.withCredentials = true
-//axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-//axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 export default {
     data() {
         return {
-            endpoint: 'https://api.guarnieri.ca'            
+            endpoint: 'https://api.guarnieri.ca',
+            sessionKey: ''
         }
     },
     mounted() {
@@ -30,6 +31,7 @@ export default {
             })
             .then(response => {
                 console.log(response)
+                this.sessionKey = response.data.sessionKey
             })
             .catch(error => {
                 console.log(error)
