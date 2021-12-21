@@ -3,35 +3,64 @@
         <h1>About</h1>
     </div>
 
-    <p>{{ sessionKey }}</p>
+    <button class="btn btn-primary" @click="csrf()">CSRF</button>
+    <br/>
 
-    <button class="btn btn-primary" @click="test()">test</button>
+    <button class="btn btn-primary mt-3" @click="login()">Login</button>
+    <br/>
+
+    <button class="btn btn-primary mt-3" @click="getSessionKey()">Get Session Key</button>
+    <br/>
+
+    <button class="btn btn-primary mt-3" @click="logout()">Logout</button>
+
+    <p class="mt-4">Session: {{ sessionKey }}</p>
+
+    <p class="mt-4">UUID: {{ uuid }}</p>
 
 </template>
 
 <script>
-import axios from 'axios'
-axios.defaults.withCredentials = true
+//import axios from 'axios'
+//axios.defaults.withCredentials = true
 
 export default {
+    emits: ['events'],
     data() {
         return {
             endpoint: 'https://api.guarnieri.ca',
-            sessionKey: ''
+            sessionKey: '',
+            uuid: ''
         }
     },
     mounted() {
-        this.getData()
+        //this.getData()
     },
     methods: {
-        test: function() {
-            axios({
+        getSessionKey: function() {
+            this.axios({
                 method: 'get',
-                url: this.endpoint + '/api/test'
+                url: this.endpoint + '/api/session-key'
             })
             .then(response => {
                 console.log(response)
                 this.sessionKey = response.data.sessionKey
+                this.uuid = response.data.uuid
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            .finally(() => {
+                
+            })
+        },
+        logout: function() {
+            this.axios({
+                method: 'get',
+                url: this.endpoint + '/api/logout'
+            })
+            .then(response => {
+                console.log(response)
             })
             .catch(error => {
                 console.log(error)
@@ -48,14 +77,14 @@ export default {
                 password: 'diego'
             }
 
-            axios({
+            this.axios({
                 method: 'post',
                 url: this.endpoint + '/api/login',
                 data: data
             })
             .then(response => {
                 console.log(response)
-                this.test()
+                //this.test()
             })
             .catch(error => {
                 console.log(error)
@@ -64,14 +93,14 @@ export default {
                 
             })
         },
-        getData: function() {
-            axios({
+        csrf: function() {
+            this.axios({
                 method: 'get',
                 url: this.endpoint + '/sanctum/csrf-cookie'
             })
             .then(response => {
                 console.log(response)
-                this.login()
+                //this.login()
             })
             .catch(error => {
                 console.log(error)

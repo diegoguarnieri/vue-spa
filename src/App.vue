@@ -10,20 +10,20 @@
 
             <ul class="list-unstyled ps-0">
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">Home</button>
+                    <button class="btn btn-light btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">Home</button>
 
                     <div class="collapse show" id="home-collapse" style="">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" @click="toPage('/')" class="link-light rounded">Overview</a></li>
-                            <li><a href="#" @click="toPage('/about')" class="link-light rounded">Updates</a></li>
-                            <li><a href="#" @click="toPage('/post')" class="link-light rounded">Reports</a></li>
-                            <li><a href="#" @click="toPage('/post/abc')" class="link-light rounded">Reports</a></li>
-                            <li><a href="#" @click="toPage('/post/def')" class="link-light rounded">Reports</a></li>
+                            <li><a href="#" @click="toPage('/')" class="link-light rounded">Dashboard</a></li>
+                            <li><a href="#" @click="toPage('/about')" class="link-light rounded">About</a></li>
+                            <li><a href="#" @click="toPage('/post')" class="link-light rounded">Post 1</a></li>
+                            <li><a href="#" @click="toPage('/post/abc')" class="link-light rounded">Post 2</a></li>
+                            <li><a href="#" @click="toPage('/post/def')" class="link-light rounded">Post 3</a></li>
                         </ul>
                     </div>
                 </li>
 
-                <li class="mb-1">
+                <!--<li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
                     Dashboard
                     </button>
@@ -35,9 +35,9 @@
                     <li><a href="#" class="link-dark rounded">Annually</a></li>
                     </ul>
                     </div>
-                </li>
+                </li>-->
 
-                <li class="mb-1">
+                <!--<li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
                     Orders
                     </button>
@@ -49,9 +49,9 @@
                     <li><a href="#" class="link-dark rounded">Returned</a></li>
                     </ul>
                     </div>
-                </li>
+                </li-->
 
-                <li class="border-top my-3"></li>
+                <!--<li class="border-top my-3"></li>
                 <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
                     Account
@@ -64,7 +64,7 @@
                     <li><a href="#" class="link-dark rounded">Sign out</a></li>
                     </ul>
                     </div>
-                </li>
+                </li>-->
             </ul>
         </div>
 
@@ -243,12 +243,12 @@
             </div>
         </div>
         
-        <footer class="footer">
+        <!--<footer class="footer">
             <div>
                 <a href="https://">CoreUI </a><a href="https://">Bootstrap Admin Template</a> &copy; 2021 creativeLabs.
             </div>
             <div class="ms-auto">Powered by&nbsp;<a href="https://bootstrap/ui-components/">CoreUI UI Components</a></div>
-        </footer>
+        </footer>-->
     </div>
 </template>
 
