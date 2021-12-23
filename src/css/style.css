@@ -1,0 +1,27 @@
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: rgba(169,169,169, .85) no-repeat center center;
+}
+
+.alert-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 90%;
+    z-index: 99999;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.spinner-border {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+}

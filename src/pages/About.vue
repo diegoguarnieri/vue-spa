@@ -9,10 +9,10 @@
     <button class="btn btn-primary mt-3" @click="login()">Login</button>
     <br/>
 
-    <button class="btn btn-primary mt-3" @click="getSessionKey()">Get Session Key</button>
+    <button class="btn btn-success mt-3" @click="getSessionKey()">Get Session Key</button>
     <br/>
 
-    <button class="btn btn-primary mt-3" @click="logout()">Logout</button>
+    <button class="btn btn-danger mt-3" @click="logout()">Logout</button>
 
     <p class="mt-4">Session: {{ sessionKey }}</p>
 
@@ -21,23 +21,25 @@
 </template>
 
 <script>
-//import axios from 'axios'
-//axios.defaults.withCredentials = true
+import { util } from '../mixins/util'
 
 export default {
+    mixins: [util],
     emits: ['events'],
     data() {
         return {
-            endpoint: 'https://api.guarnieri.ca',
             sessionKey: '',
             uuid: ''
         }
     },
     mounted() {
-        //this.getData()
+        this.getSessionKey()
     },
     methods: {
         getSessionKey: function() {
+            this.sessionKey = ''
+            this.uuid = ''
+
             this.axios({
                 method: 'get',
                 url: this.endpoint + '/api/session-key'
@@ -70,8 +72,6 @@ export default {
             })
         },
         login: function() {
-            //axios.defaults.withCredentials = true
-
             let data = {
                 email: 'diego@test.com',
                 password: 'diego'
@@ -84,7 +84,6 @@ export default {
             })
             .then(response => {
                 console.log(response)
-                //this.test()
             })
             .catch(error => {
                 console.log(error)
@@ -100,7 +99,6 @@ export default {
             })
             .then(response => {
                 console.log(response)
-                //this.login()
             })
             .catch(error => {
                 console.log(error)
